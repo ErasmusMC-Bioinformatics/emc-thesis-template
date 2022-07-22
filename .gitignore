@@ -1,0 +1,13 @@
+*.aux
+*.log
+*.out
+*.pdf
+*.toc
+*.bbl
+*.blg
+*.swp
+*.swo
+*.fls
+*.fdb_latexmk
+*.xdv
+cronout.txt

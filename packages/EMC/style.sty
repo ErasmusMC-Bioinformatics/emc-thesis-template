@@ -1,0 +1,262 @@
+\ProvidesPackage{packages/EMC/style}
+
+% School name and location
+\university{Erasmus Medical Center}
+\universitycity{Rotterdam}
+\defensedate{27-10-2021}
+\defensedatedutch{27}
+\defensetime{10:30}
+\geboorteplaats{Tilburg}
+
+% School color found from university's graphic identity site:
+% http://www.nyu.edu/employees/resources-and-services/media-and-communications/styleguide.html
+%\definecolor{SchoolColor}{rgb}{0.3412, 0.0235, 0.5490} % purple
+%\definecolor{chapterColor}{rgb}{0.2600, 0.0200, 0.4600} % dialed back a little
+
+\definecolor{emc-light-blue}{rgb}{0.525,0.808,0.959} % EMC light blue
+%\definecolor{emc-dark-blue}{rgb}{0.125,0.192,0.498} % EMC dark blue
+\definecolor{emc-dark-blue}{cmyk}{0.97, 0.57, 0, 0.36}
+\definecolor{SchoolColor}{rgb}{0.525,0.808,0.959} % EMC light blue
+
+%\definecolor{chapterColor}{rgb}{0,0.19608,0.3843} % chapter numbers
+%\definecolor{chapterColor}{rgb}{0.125,0.192,0.498} % EMC dark blue
+
+\definecolor{chapterColor}{rgb}{0.125,0.192,0.498}
+\definecolor{titleColor}{rgb}{0.525,0.808,0.959}
+
+%\definecolor{midgrey}{cmyk}
+
+\hypersetup{
+    colorlinks,
+    citecolor=emc-dark-blue,
+    filecolor=black,
+    linkcolor=emc-dark-blue,
+    urlcolor=emc-dark-blue,
+}
+
+\setlength\parindent{0pt}
+\setlength{\parskip}{\baselineskip}
+
+% Headings
+%\titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+%\titleformat{command}[shape]{format}{label}{sep}{before}[after]
+
+%section
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%\titleformat{\section}{\sc\large}{\thesection}{}{}
+\titleformat{\section}{\large\sc\color{chapterColor}}{\thesection}{1em}{}
+
+%subsection
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-10pt}
+\titleformat{\subsection}{\color{titleColor}\sc}{\thesubsubsection}{}{}
+
+% article titles
+\newcommand{\articletitle}[1]{
+\section*{\huge\color{chapterColor}{#1}}
+}
+
+
+%subsubsection
+\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{-15pt}
+%\titleformat{\subsubsection}{\color{midgrey}\center\normalfont\fontsize{11}{11}\sc}{\thesubsubsection}{}{}
+\titleformat{\subsubsection}{\itshape\color{titleColor}}{\thesubsubsection}{}{}
+
+%paragraph
+%\titleformat{\paragraph}{\color{midgrey}\center\normalfont\fontsize{11}{11}\sc}{\theparagraph}{}{}
+%\titleformat{\subsection}{\color{midgrey}\normalfont\fontsize{11}{11}\sc}{\thesubsection}{}{}
+
+% Formatting guidelines found in:
+% http://gsas.nyu.edu/docs/IO/4474/formattingguide.pdf
+\renewcommand{\frontmatter}{
+	\pagenumbering{roman}
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\frontispiece
+	\dedicationpage
+	\acknowledgments
+	\preface
+	\abstractpage
+	\tableofcontents
+
+	% figure listing - required if you have any figures
+	\listoffigures
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of figures}
+
+	% table listing - required if you have any tables
+	\listoftables
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of tables}
+
+	% appendix listing - required only if you have two or more appendices
+	% \newpage
+	% \thispagestyle{empty}
+	% \phantomsection
+	% \addcontentsline{toc}{chapter}{List of appendices}
+	% \chapter*{List of appendices}
+	% \contentsline {chapter}{Appendix A}{\pageref{AppendixA}}{}
+
+	\newpage
+	%\setcounter{page}{-1}
+	\pagenumbering{arabic}
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	%\ \\
+    %\vspace{10pt}
+	\begin{center}
+	\huge \thetitle \\
+    \large \@subtitle \\
+	\vspace{25pt}
+  	\huge \@titledutch \\
+    \large \@subtitledutch \\
+    \vspace{15pt}
+    \textbf{Thesis} \\
+	%\textsc{
+    \vspace{15pt}
+    to obtain the degree of Doctor from the \\
+    Erasmus University Rotterdam \\
+    by command of the \\
+    rector magnificus \\
+	\vspace{20pt}
+	\@rector \\
+	\vspace{20pt}
+    and in accordance with the decision of the Doctorate Board. \\
+    The public defence shall be held on \\
+    \vspace{15pt}
+    \@defensedate \\
+    by \\
+    \vspace{15pt}
+    \theauthor \\
+    born in \@placeofbirth
+    %}
+	\end{center}
+    \vspace*{\fill}
+    \includegraphics[]{frontmatter/images/titelpage-logo2.png}
+    \hspace*{\fill}
+    \includegraphics[]{frontmatter/images/titelpage-logo1.png}
+
+    %\vspace*{\fill}
+
+    \newpage
+    \textbf{Doctoral Committee:} \\
+    \ \\
+    \textbf{Promotors:} \\
+    prof. dr. P.J. van der Spek \\
+    prof. dr. ir. G.W. Jenster \\
+    \ \\
+    \textbf{Other members:} \\
+    prof. dr. S.G.M.A. Pasmans\\
+    prof. dr. M.J. Roobol - Bouts\\
+    prof. dr. P.-.B. 't Hoen\\
+    \ \\
+    \textbf{Copromotor:} \\
+    dr. A.P. Stubbs \\
+
+    \vspace*{\fill}
+    \includegraphics[]{frontmatter/images/titelpage-logo2.png}
+    \hspace*{\fill}
+    \includegraphics[]{frontmatter/images/titelpage-logo1.png}
+
+
+
+}
+
+\newcommand{\maketitledutch}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\vspace{10pt}
+	\begin{center}
+	\huge \@titledutch \\
+    \large \@subtitledutch \\
+	\vspace{25pt}
+  	\huge \thetitle \\
+    \large \@subtitle \\
+	\vspace{15pt}
+    \textbf{Proefschrift} \\
+	%\textsc{
+    \vspace{15pt}
+    ter verkrijging van de graad van doctor aan de \\
+    Erasmus Universiteit Rotterdam \\
+    op gezag van de \\
+    rector magnificus\\
+	\vspace{20pt}
+	\@rector \\
+	\vspace{20pt}
+    en volgens besluit van het College voor Promoties.\\
+    De openbare verdediging zal plaatsvinden op\\
+    \vspace{15pt}
+    \@defensedatedutch \\
+    door \\
+    \vspace{15pt}
+    \theauthor \\
+    geboren te \@geboorteplaats
+    %}
+	\end{center}
+	\vspace*{\fill}
+
+}
+
+
+%\makeatletter
+%\renewcommand\@biblabel[1]{[\the\numexpr#1-1\relax]}
+%\makeatother
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{25pt}
+	\begin{center}
+	\scshape \noindent \small \copyright \  \small  \theauthor \\
+	all rights reserved, \@degreeyear
+	\end{center}
+	\newpage
+	\rm
+}
+
+\newcommand{\frontispiece}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\begin{center}
+  \includegraphics[width=45pt]{packages/images/NYUlogo.eps}
+	\end{center}
+	\vspace*{\fill}
+}
+
+\newcommand{\dedicationpage}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Dedication}
+	\newpage
+	%\setcounter{page}{4}
+	\vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill}
+	\newpage
+	\rm
+}
+
+\newcommand{\acknowledgments}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Acknowledgments}
+	\chapter*{Acknowledgments}
+	\noindent
+	\input{endmatter/acknowledgments}
+	\vspace*{\fill} \newpage
+}
+
+\newcommand{\preface}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Preface}
+	\chapter*{Preface}
+	\input{frontmatter/preface}
+}
+
+\newcommand{\abstractpage}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abstract}
+	\chapter*{Abstract}
+	\input{frontmatter/abstract}
+}
